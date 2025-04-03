@@ -11,14 +11,14 @@ fn main() {
         .unwrap()
         .as_secs(); // What's the use of this timestamp here?
     let your_command = format!(
-        "Your command here with {}, please checkout exercises/tests/build.rs",
+        "cargo:rustc-env=TEST_FOO={}", // 修改为正确的环境变量格式
         timestamp
     );
-    println!("cargo:{}", your_command);
+    println!("{}", your_command);
 
     // In tests8, we should enable "pass" feature to make the
     // testcase return early. Fill in the command to tell
     // Cargo about that.
-    let your_command = "Your command here, please checkout exercises/tests/build.rs";
-    println!("cargo:{}", your_command);
+    let your_command = "cargo:rustc-cfg=feature=\"pass\""; // 修改为正确的特性标记格式
+    println!("{}", your_command);
 }

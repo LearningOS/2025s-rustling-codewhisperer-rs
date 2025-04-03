@@ -19,14 +19,16 @@
 // Execute `rustlings hint errors2` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
 
 use std::num::ParseIntError;
 
+/// - `item_quantity`: 一个字符串切片，表示商品的数量。
+/// - `Ok(i32)`: 如果解析和计算成功，则返回一个包含总费用的`Result`。
+/// - `Err(ParseIntError)`: 如果解析失败，则返回一个包含错误的`Result`。
 pub fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {
     let processing_fee = 1;
     let cost_per_item = 5;
-    let qty = item_quantity.parse::<i32>();
+    let qty = item_quantity.parse::<i32>()?;
 
     Ok(qty * cost_per_item + processing_fee)
 }
